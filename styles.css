@@ -242,5 +242,79 @@ a:focus-visible {
     padding-top: 32px;
   }
 }
+
+/* =========================================
+ HIDDEN VENUE GALLERY (Brutalist Style)
+ ========================================= */
+
+.brutal-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: crosshair; 
+  transition: all 0.1s ease;
+}
+
+.brutal-link:hover {
+  background: #ff2a00; 
+  color: #050505;
+}
+
+#gallery-overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #050505;
+  z-index: 9999; 
+  flex-direction: column;
+}
+
+#gallery-overlay.is-open {
+  display: flex; 
+}
+
+#close-gallery {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #050505;
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: "IBM Plex Mono", "Space Grotesk", monospace;
+  font-size: 18px;
+  padding: 8px 16px;
+  cursor: pointer;
+  z-index: 10000;
+  text-transform: uppercase;
+}
+
+#close-gallery:hover {
+  background: #ff2a00;
+  border-color: #ff2a00;
+  color: #050505;
+}
+
+.gallery-scroll {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; 
+  -webkit-overflow-scrolling: touch; 
+  align-items: center;
+}
+
+.gallery-scroll img {
+  flex: 0 0 100vw; 
+  height: 80vh; 
+  object-fit: contain; 
+  scroll-snap-align: center; 
+  padding: 80px 24px 24px 24px;
+  box-sizing: border-box;
+  /* filter: grayscale(100%) contrast(120%);  */
+}
   
 

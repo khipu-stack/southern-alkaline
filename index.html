@@ -30,7 +30,7 @@
       <main class="site-main">
         <section class="section module" aria-labelledby="about-title">
           <div class="title-wrapper">
-            <h1 id="about-title" class="section-title">Southern Alkaline</h1>
+            <h1 id="about-title" class="section-title">Alkaline</h1>
           </div>
           <div class="section-body">
             <br />
@@ -42,7 +42,7 @@
             <br />
             <br />
             <br />
-            <p>Bar &amp; Venue<br />Experimental / Noise / Music gigs happen here.<br />Based in Guangzhou, China.</p>
+            <p><span id="venue-link" class="brutal-link">Bar &amp; Venue</span><br />Experimental / Noise / Music gigs happen here.<br />Based in Guangzhou, China.</p>
             <p>We’re a collectively-built, hands-on reality. A body conceived in the city’s nooks and crannies, constantly sublating, growing, resonating.</p>
             <br />
             <br />
@@ -94,5 +94,34 @@
         </div>
       </footer>
     </div>
+
+    <div id="gallery-overlay">
+      <button id="close-gallery">[ X ] CLOSE</button>
+      <div class="gallery-scroll">
+        <img src="./images/vn1.png" alt="Venue 1">
+        <img src="./images/vn2.png" alt="Venue 2">
+        <img src="./images/vn3.png" alt="Venue 3">
+        <img src="./images/vn4.png" alt="Venue 4">
+      </div>
+    </div>
+
+    <script>
+      const venueLink = document.getElementById('venue-link');
+      const gallery = document.getElementById('gallery-overlay');
+      const closeBtn = document.getElementById('close-gallery');
+
+      venueLink.addEventListener('click', () => {
+        gallery.classList.add('is-open');
+        document.body.style.overflow = 'hidden'; 
+      });
+
+      closeBtn.addEventListener('click', () => {
+        gallery.classList.remove('is-open');
+        document.body.style.overflow = ''; 
+      });
+    </script>
+
+
+
   </body>
 </html>
