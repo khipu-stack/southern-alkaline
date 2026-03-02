@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=EB+Garamond:ital,wght@1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap');
+
+:root {
+  --bg: #050505; 
+  --text: #f0f0f0;
+  --accent: #ff2a00; 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Space Grotesk", "Avenir Next", "Helvetica Neue", "Noto Sans SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 4vw; /* 稍微增加了外边距，让没有线框的内容更有呼吸感 */
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* --- Layout Modules --- */
+/* 去掉了这里原本的 border-bottom */
+.section {
+  margin-bottom: 2vw; /* 用空白间距代替原本的线条分割 */
+}
+
+.module {
+  display: grid;
+  grid-template-columns: clamp(200px, 30vw, 400px) 1fr;
+  align-items: stretch; 
+}
+
+.title-wrapper {
+  /* 去掉了这里原本的 border-right */
+  padding: 40px 40px 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* --- Typography --- */
+.section-title {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;       
+  font-style: normal;     
+  text-transform: uppercase;
+  letter-spacing: -0.02em; 
+  line-height: 0.85;
+  word-wrap: break-word;
+}
+
+h1.section-title {
+  font-size: clamp(60px, 10vw, 120px);
+}
+
+h2.section-title {
+  font-size: clamp(48px, 8vw, 96px);
+}
+
+/*
+.section-body {
+  padding: 40px 0 40px clamp(20px, 4vw, 60px);
+  font-family: "Space Grotesk", "Avenir Next", "Helvetica Neue", "Noto Sans SC", sans-serif;
+  font-weight: 400;       
+  font-style: normal;     
+  letter-spacing: -0.01em;
+}
+*/
+
+.section-body {
+  font-family: "IBM Plex Mono", monospace;
+  -webkit-font-smoothing: antialiased; /* 平滑，保证阅读质感 */
+}
+
+p {
+  /* 放大了正文字号，让细斜体更加清晰、有张力 */
+  font-size: clamp(24px, 3vw, 48px); 
+  line-height: 1.4;
+  margin-bottom: 32px; /* 相应地拉大了段落间距 */
+  max-width: 60ch;
+  font-weight: 300;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Brutalist Links --- 
+a {
+  color: var(--bg);
+  background-color: var(--text);
+  text-decoration: none;
+  padding: 4px 8px;
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  transition: none; 
+}
+
+a:hover,
+a:focus-visible {
+  background-color: var(--accent);
+  color: var(--text);
+  outline: 4px solid var(--accent);
+  outline-offset: 2px;
+  padding: 4px 8px; 
+}
+*/
+
+/* --- Brutalist Links --- */
+/* 专门针对 Instagram 和 SoundCloud 的交互色块 */
+.title-link {
+  color: var(--text); /* 默认状态下：只有白色文字，没有背景色 */
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  
+  /* 制造巨大色块的关键：增加四周的内边距 */
+  padding: 10px 20px; 
+  /* 边缘对齐黑科技：向左拉回，抵消左边的 padding，让文字依然对齐网格 */
+  margin-left: -20px; 
+  
+  transition: none; /* 拒绝平滑过渡，保持粗野 */
+
+  text-decoration: underline;
+  text-decoration-thickness: 4px; /* 极粗的线条，充满力量感 */
+  text-underline-offset: 8px;     /* 将线条往下推，刻意拉开与文字的距离 */
+  text-decoration-color: rgba(240, 240, 240, 0.5); /* 半透明的白色，不抢文字风头，但足够提示 */
+}
+
+/* 鼠标放上去的瞬间状态：暴力红底、黑字 */
+.title-link:hover,
+.title-link:focus-visible {
+  background-color: var(--accent); /* 瞬间出现荧光红背景 */
+  color: var(--bg); /* 文字颜色反转成深黑色 */
+  outline: none; /* 清除掉旧版本残留的边框 */
+}
+
+/* --- Footer Composition --- */
+.site-footer {
+  margin-top: clamp(28px, 6vw, 96px);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: clamp(12px, 2.4vw, 28px);
+}
+
+.footer-platform {
+  margin-bottom: 0;
+}
+
+.footer-platform.module {
+  grid-template-columns: 1fr;
+}
+
+.footer-platform .title-wrapper {
+  padding: 0;
+}
+
+.footer-platform .section-title {
+  font-size: clamp(44px, 7vw, 84px);
+  line-height: 0.88;
+}
+
+/* --- 移到底部的 Logo --- */
+.bottom-logo-wrapper {
+  padding-top: clamp(24px, 5vw, 72px);
+  padding-bottom: clamp(20px, 4vw, 48px);
+  display: block;
+  /* justify-content: flex-start; */
+  /* border-top: 2px solid var(--text); */
+}
+
+.logo {
+  display: block;
+  /* width: clamp(180px, 25vw, 400px); */
+  width: 100%;;
+  height: auto;
+  filter: grayscale(100%) contrast(150%); 
+}
+
+
+  /* --- Responsive (Mobile) --- */
+@media (max-width: 900px) {
+  .container {
+    padding: 24px 8px;
+    width: 100vw; /* 确保容器和屏幕一样宽 */
+    overflow-x: hidden;
+  }
+  
+  .module {
+    grid-template-columns: 1fr;
+  }
+
+  .title-wrapper {
+    padding: 24px 0 12px 0; 
+  }
+
+  .section-body {
+    padding: 0 0 40px 0;
+  }
+
+  .section-title {
+    /* 当字母太巨大装不下时，强行切断字母换行 */
+    word-break: break-all; 
+  }
+
+  h1.section-title {
+    /* 稍微调小了最小值，让它在小手机上不至于完全失控 */
+    font-size: clamp(40px, 15vw, 80px);
+  }
+
+  h2.section-title {
+    font-size: clamp(36px, 12vw, 64px);
+  }
+
+  /* 👇 限制移动端段落宽度，确保护眼阅读 */
+  p {
+    font-size: 18px; /* 手机上等宽字体 18px 已经足够大了 */
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 100%; /* 防止段落宽度溢出 */
+    padding-right: 12px; /* 给右边留出一点点呼吸空间 */
+  }
+
+  .bottom-logo-wrapper {
+    padding-top: 32px;
+  }
+}
+  
+
